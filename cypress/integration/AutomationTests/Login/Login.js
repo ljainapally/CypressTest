@@ -5,10 +5,8 @@ Given(`I am on the verisart website`, () => {
   When(`I enter the username`, () => {
     cy.get('Input[name="email"]').type("samo_test@yopmail.com");
   });
-
   When(`I enter the password`, () => {
     cy.get('Input[name="password"]').type("Password123");
-    
   });
   When(`I click on the login button`, () => {
    cy.get('.Button-kDSBcD').click();

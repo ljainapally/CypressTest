@@ -14,7 +14,11 @@ Scenario: Create Certificate with Required Fields
     And I enter width as 12
     And I select the unit as "Centimeters"
    When I click on the continue button
-   Then I should see the certificate preview
+    And I should see the certificate preview
+    And I check the confirm certificate details button
+    And I click CertifyNow button
+   Then I should see Certificate Saved
+    And I Click on Continue Button
 
 
 

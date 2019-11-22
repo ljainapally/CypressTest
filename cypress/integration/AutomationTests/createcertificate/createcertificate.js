@@ -64,8 +64,21 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
     });
    When(`I click on the continue button`, () => {
     cy.get(".Button-kDSBcD").click().should('have.text','Continue');
-});
-   Then(`I should see the certificate preview`, () => {
-  
-});
+    });
+   When(`I should see the certificate preview`, () => {
+   cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible').click();
+    });
+    When(`I check the confirm certificate details button`, () => {
+    cy.get('.Checkbox__TickWrapper-kqwkaU').click();
+    });
+    When(`I click CertifyNow button`, () => {
+    cy.get('.ModalPreview__Content-vNTBJ > .Button-kDSBcD').click();
+    });
+   Then(`I should see Certificate Saved`, () => {
+    cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible')
+    });
+    Then(`I Click on Continue Button`, () => {
+    cy.get('.ModalPreview__Spacing-khdzag > .Button-kDSBcD').click();
+    });
+
 

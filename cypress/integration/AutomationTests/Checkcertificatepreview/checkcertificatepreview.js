@@ -20,7 +20,7 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
             ],
         },
     };
-    cy.fixture('Military Man.jpg').then((picture) => {
+    cy.fixture('Smile.jpg').then((picture) => {
         return Cypress.Blob.base64StringToBlob(picture, 'image/jpeg').then((blob) => {
             dropEvent.dataTransfer.files.push(blob);
         });
@@ -39,46 +39,83 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
     And(`I select the artwork type as {string}`, (artWorktype) => {
         cy.get(':nth-child(4) > .styles__Selected-goPXIx').contains('Select artwork type').should('have.text', 'Select artwork type').click();
-        cy.get('.styles__Options-ehSwsS').contains('Painting').should('have.text',artWorktype).click();
+        cy.get('.styles__Options-ehSwsS').contains(artWorktype).should('have.text',artWorktype).click();
     });
 
     And(`I enter the title as {string}`, (title) => {
         cy.get('Input[name="title"]').type(title).should('have.value',title);
   
     });
+
     And(`I enter production year as {string}`, (year) => {
         cy.get('Input[name="production_year"]').type(year).should('have.value',year);
     });
+
     And(`I enter medium as {string}`, (medium) => {
         cy.get('Input[name="medium"]').type(medium).should('have.value',medium)
     });
+
     And(`I enter height as {int}`, (height) => {
-        cy.get('Input[name="height"]').type(height).should('contain.value',height);
+        cy.get('Input[name="height"]').type(height);
     });
     And(`I enter width as {int}`, (width) => {
-        cy.get('Input[name="width"]').type(width).should('contain.value',width);
+        cy.get('Input[name="width"]').type(width);
     });
+
     And(`I select the unit as {string}`, (unit) => {
         cy.get(':nth-child(3) > .styles__Wrapper-hZyTcS > .styles__Selected-goPXIx').contains('Select Unit').should('have.text', 'Select Unit').click();
         cy.get('.styles__Options-ehSwsS').contains(unit).should('have.text', unit).click();
     });
+
    When(`I click on the continue button`, () => {
-    cy.get(".Button-kDSBcD").click().should('have.text','Continue');
-    });
-   When(`I should see the certificate preview`, () => {
-   cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible').click();
-    });
-    When(`I check the confirm certificate details button`, () => {
-    cy.get('.Checkbox__TickWrapper-kqwkaU').click();
-    });
-    When(`I click CertifyNow button`, () => {
-    cy.get('.ModalPreview__Content-vNTBJ > .Button-kDSBcD').click();
-    });
-   Then(`I should see Certificate Saved`, () => {
-    cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible')
-    });
-    And(`I Click on Continue Button`, () => {
-    cy.get('.ModalPreview__Spacing-khdzag > .Button-kDSBcD').click();
+        cy.get(".Button-kDSBcD").click().should('have.text','Continue');
     });
 
+    Then(`I should see the certificate preview`, () => {
+        cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible').click();
+        cy.get('.ModalPreview__Caption-eirYXK').contains('Certificate Preview').should('have.text','Certificate Preview');
+    });
 
+    And(`I should see the certificate type as {string}`, (certificateType) => {
+        cy.get('.Header__Title-dLRSgy').contains(certificateType).should('have.text',certificateType);
+    });
+
+    And(`I should see Artist Name`, () =>{
+        cy.get('.Details__Header-ecJRav > .Details__Title-khuZcf').should('be.visible');
+    });
+
+    And(`I should see Artist Signature`, () =>{
+        cy.get('.Details__Signature-kefvHB > img').should('be.visible');
+    });
+
+    And(`I should see image on the certificate preview`, ()=>{
+        cy.get('.CertificatePreview__Image-cyjvhF').should('be.visible');
+    });
+
+    And(`I should see the title as {string}`, (previewTitle) =>{
+        cy.get(':nth-child(1) > .DetailsItem__Value-dtxmuy').contains(previewTitle).should('have.text', previewTitle);
+    });
+
+    And(`I should see production Date as {string}`, (previewYear) =>{
+        cy.get(':nth-child(2) > .DetailsItem__Value-dtxmuy').contains(previewYear).should('have.text', previewYear);
+    });
+    And(`I should see medium as {string}`, (previewMedium) =>{
+        cy.get(':nth-child(3) > .DetailsItem__Value-dtxmuy').contains(previewMedium).should('have.text', previewMedium);
+
+    });
+
+    And(`I should see dimensions as {string}`, (previewDimentsions) =>{
+        cy.get(':nth-child(4) > .DetailsItem__Value-dtxmuy').contains(previewDimentsions).should('have.text', previewDimentsions);
+
+    });
+    And(`I should see current owner as {string}`, (previewCurrentOwner) =>{
+        cy.get(':nth-child(5) > .DetailsItem__Value-dtxmuy').contains(previewCurrentOwner).should('have.text', previewCurrentOwner);
+    });
+    And(`I should see URL as {string}`, (previewUrl) =>{
+        cy.get(':nth-child(6) > .DetailsItem__Value-dtxmuy').contains(previewUrl).should('have.text', previewUrl);
+
+    });
+    And(`I should see Blockchain Address as {string}` , (previewBlockchainAddress) =>{
+        cy.get(':nth-child(7) > .DetailsItem__Value-dtxmuy').contains(previewBlockchainAddress).should('have.text', previewBlockchainAddress);
+
+    });

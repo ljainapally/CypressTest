@@ -28,7 +28,7 @@ to run tests do:
 `npm run test`
 ​
 ### run in browser
-node_modules\.bin\cypress open
+./node_modules/.bin/cypress run
 
 ## run headless
 npx cypress run

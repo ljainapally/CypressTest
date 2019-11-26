@@ -56,10 +56,10 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
     });
 
     And(`I enter height as {int}`, (height) => {
-        cy.get('Input[name="height"]').type(height);
+        cy.get('Input[name="height"]').type(height).should('contain.value',height);
     });
     And(`I enter width as {int}`, (width) => {
-        cy.get('Input[name="width"]').type(width);
+        cy.get('Input[name="width"]').type(width).should('contain.value',width);
     });
 
     And(`I select the unit as {string}`, (unit) => {

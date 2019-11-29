@@ -6,7 +6,7 @@ Scenario: Verify details on Certificate Preview
     And I select the image as "Front Image"
     And I am the creator of the artwork
     And I select the artwork type as "Painting"
-    And I enter the title as "Test_Title"
+    And I enter the title as "CypressTest_Title"
     And I enter production year as "1999"
     And I enter medium as "Canvas"
     And I enter height as 19

@@ -20,7 +20,7 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
             ],
         },
     };
-    cy.fixture('Smile.jpg').then((picture) => {
+    cy.fixture('/testImages/Smile.jpg').then((picture) => {
         return Cypress.Blob.base64StringToBlob(picture, 'image/jpeg').then((blob) => {
             dropEvent.dataTransfer.files.push(blob);
         });

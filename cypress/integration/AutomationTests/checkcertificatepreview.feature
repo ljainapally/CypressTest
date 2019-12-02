@@ -18,7 +18,7 @@ Scenario: Verify details on Certificate Preview
     And I should see Artist Name
     And I should see Artist Signature
     And I should see image on the certificate preview
-    And I should see the title as "Test_Title"
+    And I should see the title as "CypressTest_Title"
     And I should see production Date as "1999"
     And I should see dimensions as "19 x 12 cm"
     And I should see medium as "Canvas"

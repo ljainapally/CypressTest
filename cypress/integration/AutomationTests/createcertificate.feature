@@ -4,7 +4,9 @@ Create Certificates on Verisart Platform
 Scenario: Create COA with TestData1 and ArtworkType Painting
   Given I am logged in and go to certify tab
   Given I Upload the image "/TestImages/Little Afghan.jpg"
+  Given I Upload the image "/TestImages/backimage.jpg"
     And I select the image as "Front Image"
+    And I select the backimage as "Back Image"
     And I am the creator of the artwork
     And I select the artwork type as "Painting"
     And I enter the title as "CypressTest_Little Afghan"
@@ -38,7 +40,7 @@ Scenario: Create COA with TestData4 and ArtworkType Furniture
     And I click CertifyNow button
    Then I should see Certificate Saved
     And I Click on Continue Button
-
+ 
 Scenario: Create COA with TestData5 and ArtworkType Drawing
   Given I am logged in and go to certify tab
   Given I Upload the image "/TestImages/High Noon .jpg"
@@ -57,7 +59,7 @@ Scenario: Create COA with TestData5 and ArtworkType Drawing
     And I click CertifyNow button
    Then I should see Certificate Saved
     And I Click on Continue Button
-
+ 
 Scenario: Create COA with TestData6 and ArtworkType Picture
   Given I am logged in and go to certify tab
   Given I Upload the image "/TestImages/Near Montgomery.jpg"
@@ -76,7 +78,7 @@ Scenario: Create COA with TestData6 and ArtworkType Picture
     And I click CertifyNow button
    Then I should see Certificate Saved
     And I Click on Continue Button
-
+ 
   Scenario: Create COA with TestData7 and ArtworkType Design
   Given I am logged in and go to certify tab
   Given I Upload the image "/TestImages/Military Man.jpg"

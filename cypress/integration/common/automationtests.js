@@ -4,8 +4,9 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
     cy.visit('https://samo.verisart.com') 
     cy.contains('Log In').click().should('be.visible');
    //Login
-   cy.get('Input[name="email"]').type("test_post1@yopmail.com").should('have.value','test_post1@yopmail.com');
-   cy.get('Input[name="password"]').type("Password123").should('have.value','Password123');
+   cy.fixture("userlogin").as("userlogindetails");
+   cy.get('Input[name="email"]').type(userlogindetails.email);
+   cy.get('Input[name="password"]').type(userlogindetails.password);
    cy.get('.Button-kDSBcD').click().should('have.text','Login');
 
     // Navigate to certify page
@@ -32,11 +33,6 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
     And(`I select the image as {string}`, (frontImage) => {
         cy.get('.styles__ImageWrapper-itKwCQ > .styles__Wrapper-hZyTcS > .styles__Selected-goPXIx').contains('Select Type').should('have.text', 'Select Type').click();
         cy.get('.styles__Options-ehSwsS').contains('Front Image').should('have.text',frontImage).click();
-  
-    });
-    And(`I select the backimage as {string}`, (backImage) => {
-        cy.get(':nth-child(2) > .styles__Wrapper-hZyTcS > .styles__Selected-goPXIx').contains('Select Type').should('have.text', 'Select Type').click();
-        cy.get('.styles__Options-ehSwsS > :nth-child(2)').contains('Back Image').should('have.text',backImage).click();
   
     });
     And(`I am the creator of the artwork` , () => {

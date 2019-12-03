@@ -26,7 +26,7 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
             dropEvent.dataTransfer.files.push(blob);
         });
     });
-    cy.get(".Dropzone-gpJCwJ > .styles__SmallTitle-hinBwc").trigger('drop', dropEvent);
+    cy.get('.Dropzone__DropTitle-bJWYXP').trigger('drop', dropEvent);
     });
 
     And(`I select the image as {string}`, (frontImage) => {

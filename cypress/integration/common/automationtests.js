@@ -4,9 +4,11 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
     cy.visit('https://samo.verisart.com') 
     cy.contains('Log In').click().should('be.visible');
    //Login
-   cy.fixture("userlogin").as("userlogindetails");
-   cy.get('Input[name="email"]').type(userlogindetails.email);
-   cy.get('Input[name="password"]').type(userlogindetails.password);
+   cy.fixture('userlogin').as('userlogindetails').then((userlogins) => {
+    cy.get('Input[name="email"]').type(userlogins.email);
+    cy.get('Input[name="password"]').type(userlogins.password);
+   });
+
    cy.get('.Button-kDSBcD').click().should('have.text','Login');
 
     // Navigate to certify page

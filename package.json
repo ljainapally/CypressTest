@@ -16,10 +16,9 @@
     "url": "https://github.com/verisart/CypressTest/issues"
   },
   "homepage": "https://github.com/verisart/CypressTest#readme",
-  "dependencies": {
-    "cypress": "^3.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cypress": "^3.7.0",
     "cypress-cucumber-preprocessor": "^1.16.2"
   },
   "cypress-cucumber-preprocessor": {

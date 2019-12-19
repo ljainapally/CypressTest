@@ -1,5 +1,6 @@
 {
-    "testFiles": "**/*.feature",
-    "viewportWidth": 1400,
-    "viewportHeight": 1200
+  "testFiles": "**/*.feature",
+  "viewportWidth": 1400,
+  "viewportHeight": 1200,
+  "projectId": "2u77tm"
 }

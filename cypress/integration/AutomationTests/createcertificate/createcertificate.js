@@ -1,19 +1,5 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
-  Given(`I am logged in and go to certify tab`, () => {
-    cy.visit('https://samo.verisart.com') 
-    cy.contains('Log In').click().should('be.visible');
-   //Login
-   cy.get('Input[name="email"]').type("test_post1@yopmail.com").should('have.value','test_post1@yopmail.com');
-   cy.get('Input[name="password"]').type("Password123").should('have.value','Password123');
-   cy.get('.Button-kDSBcD').click().should('have.text','Login');
-
-    // Navigate to certify page
-    cy.contains('Certify').click().should('be.visible');
-  
-    });
-      
-
   Given(`I Upload the image {string}` , (fileName) => {
       const dropEvent = {
         dataTransfer: {

@@ -19,7 +19,8 @@
   "dependencies": {},
   "devDependencies": {
     "cypress": "^3.7.0",
-    "cypress-cucumber-preprocessor": "^1.16.2"
+    "cypress-cucumber-preprocessor": "^1.16.2",
+    "prettier": "^1.19.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

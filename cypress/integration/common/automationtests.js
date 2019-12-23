@@ -1,15 +1,16 @@
-import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+// import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
   Given(`I am logged in and go to certify tab`, () => {
-    cy.visit('https://samo.verisart.com') 
+    //cy.visit('https://samo.verisart.com') 
+    cy.visit('http://localhost:3000/') 
     cy.contains('Log In').click().should('be.visible');
    //Login
    cy.fixture('userlogin').as('userlogindetails').then((userlogins) => {
-    cy.get('Input[name="email"]').type(userlogins.email);
-    cy.get('Input[name="password"]').type(userlogins.password);
+    cy.get('[data-test="emailInput"]').type(userlogins.email);
+    cy.get('[data-test="passwordInput"]').type(userlogins.password);
    });
 
-   cy.get('.Button-kDSBcD').click().should('have.text','Login');
+   cy.get('[data-test="submitButton"]').click().should('have.text','Login');
 
     // Navigate to certify page
     cy.contains('Certify').click().should('be.visible');
@@ -48,23 +49,23 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
     And(`I enter the title as {string}`, (title) => {
         let uniqueID = Cypress.moment().format('DD MM YYYY');
-        cy.get('Input[name="title"]').type(uniqueID + '_' + title);
+        cy.get('[data-test="titleInput"]').type(uniqueID + '_' + title);
   
     });
     And(`I enter production year as {string}`, (year) => {
-        cy.get('Input[name="production_year"]').type(year).should('have.value',year);
+        cy.get('[data-test="productionYearInput"]').type(year).should('have.value',year);
     });
     And(`I enter medium as {string}`, (medium) => {
-        cy.get('Input[name="medium"]').type(medium).should('have.value',medium)
+        cy.get('[data-test="mediumInput"]').type(medium).should('have.value',medium)
     });
     And(`I enter height as {float}`, (height) => {
-        cy.get('Input[name="height"]').type(height).should('contain.value',height);
+        cy.get('[data-test="heightInput"]').type(height).should('contain.value',height);
     });
     And(`I enter width as {float}`, (width) => {
-        cy.get('Input[name="width"]').type(width).should('contain.value',width);
+        cy.get('[data-test="widthInput"]').type(width).should('contain.value',width);
     });
     And(`I enter depth as {float}`, (depth) => {
-        cy.get('Input[name="depth"]').type(depth).should('contain.value',depth);
+        cy.get('[data-test="depthInput"]').type(depth).should('contain.value',depth);
     });
     And(`I select the unit as {string}`, (unit) => {
         cy.get('.styles__Wrapper-hZyTcS > .styles__Selected-goPXIx').contains('Select Unit').should('have.text', 'Select Unit').click();

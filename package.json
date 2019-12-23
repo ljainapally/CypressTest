@@ -18,7 +18,7 @@
   "homepage": "https://github.com/verisart/CypressTest#readme",
   "dependencies": {},
   "devDependencies": {
-    "cypress": "^3.7.0",
+    "cypress": "^3.8.0",
     "cypress-cucumber-preprocessor": "^1.16.2",
     "prettier": "^1.19.1"
   },

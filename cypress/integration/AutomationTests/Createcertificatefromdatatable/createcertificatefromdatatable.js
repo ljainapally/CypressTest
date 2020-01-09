@@ -31,11 +31,11 @@ Then(`I create the certificates with the folowing data` , datatable => {
 
     cy.get('.styles__Wrapper-hZyTcS > .styles__Selected-goPXIx').contains('Select Unit').should('have.text', 'Select Unit').click();
     cy.get('.styles__Options-ehSwsS > :nth-child(2)').contains(row.Units).should('have.text', row.Units).click();
-    cy.get('[data-test="currrentLocationInuput"]').type(row.Location).should('have.value', row.Location)
+    cy.get('[data-test="currentLocationInput"]').type(row.Location).should('have.value', row.Location)
     cy.get('[data-test="inventoryNumberInput"]').type(row.InventoryNumber).should('have.value', row.InventoryNumber)
     cy.get('[data-test="personalNoteInput"]').type(row.Note).should('have.value', row.Note)
 
-cy.get('[data-test=continueButtonOnCertifyPage]').click().should('have.text','Continue');
+cy.get('[data-test=continueButton]').click().should('have.text','Continue');
 cy.get('.styles__ModalWrapper-cpkhFH').should('be.visible').click();
 cy.get('.Checkbox__TickWrapper-kqwkaU').click();
 cy.get('.ModalPreview__Content-vNTBJ > .Button-kDSBcD').click();

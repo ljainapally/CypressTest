@@ -1,8 +1,7 @@
 // import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
   Given(`I am logged in and go to certify tab`, () => {
-    //cy.visit('https://samo.verisart.com') 
-    cy.visit('http://localhost:3000/') 
+    cy.visit('/') 
     cy.contains('Log In').click().should('be.visible');
    //Login
    cy.fixture('userlogin').as('userlogindetails').then((userlogins) => {

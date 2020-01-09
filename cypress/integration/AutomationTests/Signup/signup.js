@@ -1,6 +1,6 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 Given(`I am on the verisart Join Page`, () => {
-  cy.visit('http://localhost:3000/join');
+  cy.visit('/join');
   });
 
 When(`I click on the Request Invite` , () => {
@@ -8,7 +8,7 @@ When(`I click on the Request Invite` , () => {
 });
 
 And(`I enter email address` , () => {
-    cy.get('[data-test="emailInputRequestInvite"]').type("samo_test@yopmail.com").should('have.value','samo_test@yopmail.com');
+    cy.get('[data-test="emailInput"]').type("samo_test@yopmail.com").should('have.value','samo_test@yopmail.com');
 });
 
 And(`I click on the Request Invite Button`, () => {
@@ -24,7 +24,7 @@ Given(`I enter the Invite code as {string}` , (inviteCode) => {
 });
 
 And(`I press Next Button on Join Page`, () => {
-  cy.get('[data-test="nextButtonOnJoinPage"]').contains('Next').should('have.text', 'Next').click();
+  cy.get('[data-test="nextButton"]').contains('Next').should('have.text', 'Next').click();
 });
 
 And(`I enter the email as {string}` , (email) => {
@@ -40,7 +40,7 @@ And(`I press Next Button on account` , () => {
 
 });
 And(`I enter Name on the Profile`, () => {
-  cy.get('[data-test=nameOnJoin]').type(Cypress.moment().format('DD MM YYYY')+ '_' +'cypresstest');
+  cy.get('[data-test=nameInput]').type(Cypress.moment().format('DD MM YYYY')+ '_' +'cypresstest');
 });
 And(`I upload signature` , () => {
   const dropEvent = {

@@ -1,6 +1,6 @@
   import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
   Given(`I am on the verisart website`, () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.contains('Log In').click().should('be.visible');   
     });
     When(`I enter the username as {string}`, (userName) => {

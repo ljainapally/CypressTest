@@ -1,4 +1,4 @@
-import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 Given(`I am on the verisart Join Page`, () => {
   cy.visit('/join');
   });
@@ -6,17 +6,11 @@ Given(`I am on the verisart Join Page`, () => {
 When(`I click on the Request Invite` , () => {
   cy.get('[data-test="requestInviteCodeLink"]').should('have.text', 'Request Invite').click();
 });
-
-And(`I enter email address` , () => {
-    cy.get('[data-test="emailInput"]').type("samo_test@yopmail.com").should('have.value','samo_test@yopmail.com');
+And(`I enter email address`, () => {
+  cy.get('[data-test="emailInput"]').type("testverisart1@yopmail.com").should('have.value','testverisart1@yopmail.com');
 });
-
 And(`I click on the Request Invite Button`, () => {
     cy.get('[data-test="requestInviteButton"]').contains('Request Invite').should('have.text', 'Request Invite').click();
-});
-
-Then(`I should see message as {string}`, (message) => {
-    cy.get('.styles__SmallTitle-hinBwc').contains(message).should('have.text', 'Thank you for contacting us');
 });
 
 Given(`I enter the Invite code as {string}` , (inviteCode) => {
@@ -60,5 +54,5 @@ When(`I save the Profile` , () => {
   cy.get('[data-test="saveProfileButton"]').contains('Save Profile').should('have.text', 'Save Profile').click();
 });
 Then(`I see the confirmation` , () => {
-  cy.contains('Thank you for joining').should('have.text', 'Thank you for joining');
+  cy.contains('Thank you for joining').should('have.text', 'Thank you for joining'); 
 });

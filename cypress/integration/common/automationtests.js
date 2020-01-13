@@ -1,4 +1,4 @@
-// import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
   Given(`I am logged in and go to certify tab`, () => {
     cy.visit('/') 
@@ -9,6 +9,9 @@
     cy.get('[data-test="passwordInput"]').type(userlogins.password);
    });
 
+   And(`I enter email address`, () => {
+    cy.get('[data-test="emailInput"]').type("testverisart1@yopmail.com").should('have.value','testverisart1@yopmail.com');
+});
    cy.get('[data-test="submitButton"]').click().should('have.text','Login');
 
     // Navigate to certify page
@@ -91,3 +94,9 @@
     cy.contains('Account').click();
     cy.get('.styles__NavSubItemContent-jIGCBQ > :nth-child(3) > a').click();
     });
+    And(`I click on the Submit button`, () => {
+        cy.get(".Button-kDSBcD").click().should('have.text','Sumbit');
+    });
+Then(`I should see message as {string}`, (message) => {
+    cy.get('.styles__SmallTitle-hinBwc').contains(message).should('have.text', 'Thank you for contacting us');
+});

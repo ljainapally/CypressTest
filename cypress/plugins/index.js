@@ -31,7 +31,7 @@ module.exports = (on, config) => {
     })
   
 function processConfigName(on, config) {
-  const file = config.env.name || "dev"
+  const file = config.env.name || "qa"
   return getConfigFile(file).then(function (file) {
     //return file object
     return file;

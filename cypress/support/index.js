@@ -15,6 +15,12 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+// index.js
+const customCommands = require('./commands.js')
+
+module.exports = {
+  commands: customCommands
+}
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

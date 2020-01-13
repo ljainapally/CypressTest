@@ -23,3 +23,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add("getAdminToken", () => {
+ cy.request({
+      method: 'POST',
+      url: '/api/v2/oauth/token',
+      body: {
+        username: 'nicolas@verisart.com',
+        password: 'password',
+        grant_type: 'password',
+        scope: 'admin',
+        client_id: '5678',
+        client_secret: 'eeffgghh',
+      }
+    });
+  });
+
+Cypress.Commands.add('userLogin', (email, password) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/v2/users',
+        body: {
+            user: {
+                email,
+                password
+            }
+        }
+    })
+})
+
+Cypress.Commands.add('deleteUser', () => {
+    cy.request({
+        method: 'DELETE',
+        url: '/api/v2/users/me',
+    })
+})
